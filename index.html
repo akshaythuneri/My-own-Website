@@ -7,6 +7,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 <!DOCTYPE html>
 <html lang="en">
 <head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <title>Client Personal Category Flat Bootstrap Responsive Website Template | Home :: w3layouts</title>
 <!-- for-mobile-apps -->
 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -31,7 +32,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 	<!-- //css files -->
 
 	<!-- google fonts -->
-	<link href="//fonts.googleapis.com/css?family=Source+Sans+Pro:200,200i,300,300i,400,400i,600,600i,700,700i,900,900i&amp;subset=cyrillic,cyrillic-ext,greek,greek-ext,latin-ext,vietnamese" rel="stylesheet">
+	  <link href="//fonts.googleapis.com/css?family=Source+Sans+Pro:200,200i,300,300i,400,400i,600,600i,700,700i,900,900i&amp;subset=cyrillic,cyrillic-ext,greek,greek-ext,latin-ext,vietnamese" rel="stylesheet">
 	<!-- //google fonts -->
 
 </head>
@@ -156,7 +157,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 					<img src="images/wdev.jpg" alt="" class="img-fluid" />
 					<h3>02</h3>
 					<h4 class="mt-3">Web Developer</h4>
-					<p class="mt-3">Web development <br>efers to building, creating, and an maintaining websites. It includes aspects such as web design,
+					<p class="mt-3">Web development <br>refers to building, creating, and an maintaining websites. It includes aspects such as web design,
             web publishing, web programming, and database management.</p>
 				  </div>
 				</div>
@@ -312,7 +313,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 		<div class="contact-form">
 			<div class="row">
 				<div class="col-lg-8">
-					<form name="contactform" id="contactform" method="post" action="#" onsubmit="return(validate());" novalidate="novalidate">
+					<form name="contactform" id="contactform" action="" onsubmit="return(validate());" novalidate="novalidate">
 						<div class="row">
 							<div class="form-group col-md-6 ">
 							  <label>Name</label>
@@ -328,11 +329,11 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 							</div>
 							<div class="form-group col-md-6">
 							  <label>Subject</label>
-							  <input type="text" class="form-control" id="subject" placeholder="Enter Subject" name="phone">
+							  <input type="text" class="form-control" id="subject" placeholder="Enter Subject" name="subject">
 							</div>
 							<div class="form-group col-12">
 							  <label>Message</label>
-							  <textarea name="issues" class="form-control" id="iq" placeholder="Enter Your Message Here..."></textarea>
+							  <textarea class="form-control" id="iq" placeholder="Enter Your Message Here..." name="message"></textarea>
 							</div>
 							<button type="submit" class="btn btn-default">Submit </button>
 						</div>
@@ -343,6 +344,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 	</div>
 </section>
 <!-- //Contact -->
+
+
 
 <!-- footer -->
 <footer class="py-lg-5 py-4">
@@ -392,6 +395,26 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 	</a>
 </div>
 <!-- move top -->
+<script>
+        $("#contactform").submit((e)=>{
+            e.preventDefault()
+            $.ajax({
+                url:"https://script.google.com/macros/s/AKfycbz8K6jPUqJaiNSc8LR4Ypgr_9yKV8kqCuhoGiyLvg/exec",
+                data:$("#contactform").serialize(),
+                method:"post",
+                success:function (response){
+                    alert("Form submitted successfully")
+                    window.location.reload()
+                    //window.location.href="https://google.com"
+                },
+                error:function (err){
+                    alert("Something Error")
+
+                }
+            })
+        })
+    </script>
+
 
 </body>
 </html>
